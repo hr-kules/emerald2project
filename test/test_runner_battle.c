@@ -1347,7 +1347,6 @@ static void TearDownBattle(void)
 
 static void CB2_BattleTest_NextParameter(void)
 {
-    TestRunner_CheckMemory();
     if (++STATE->runParameter >= STATE->parameters)
     {
         SetMainCallback2(CB2_TestRunner);
@@ -2039,7 +2038,8 @@ s32 MoveGetTarget(s32 battlerId, u32 moveId, struct MoveContext *ctx, u32 source
          || move->target == MOVE_TARGET_BOTH
          || move->target == MOVE_TARGET_DEPENDS
          || move->target == MOVE_TARGET_FOES_AND_ALLY
-         || move->target == MOVE_TARGET_OPPONENTS_FIELD)
+         || move->target == MOVE_TARGET_OPPONENTS_FIELD
+         || move->target == MOVE_TARGET_ALL_BATTLERS)
         {
             target = BATTLE_OPPOSITE(battlerId);
         }
@@ -2053,7 +2053,7 @@ s32 MoveGetTarget(s32 battlerId, u32 moveId, struct MoveContext *ctx, u32 source
 
             target = BATTLE_OPPOSITE(battlerId);
         }
-        else if (move->target == MOVE_TARGET_USER || move->target == MOVE_TARGET_ALL_BATTLERS)
+        else if (move->target == MOVE_TARGET_USER)
         {
             target = battlerId;
         }

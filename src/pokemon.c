@@ -11,6 +11,7 @@
 #include "battle_setup.h"
 #include "battle_tower.h"
 #include "battle_z_move.h"
+#include "bw_summary_screen.h"
 #include "data.h"
 #include "dexnav.h"
 #include "event_data.h"
@@ -1163,7 +1164,7 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
                 totalRerolls += 1;
             if (I_FISHING_CHAIN && gIsFishingEncounter)
                 totalRerolls += CalculateChainFishingShinyRolls();
-            if (gDexNavSpecies)
+            if (gDexNavBattle)
                 totalRerolls += CalculateDexNavShinyRolls();
 
             while (GET_SHINY_VALUE(value, personality) >= SHINY_ODDS && totalRerolls > 0)
@@ -1197,9 +1198,6 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
     value = ITEM_POKE_BALL;
     SetBoxMonData(boxMon, MON_DATA_POKEBALL, &value);
     SetBoxMonData(boxMon, MON_DATA_OT_GENDER, &gSaveBlock2Ptr->playerGender);
-
-    u32 teraType = (boxMon->personality & 0x1) == 0 ? gSpeciesInfo[species].types[0] : gSpeciesInfo[species].types[1];
-    SetBoxMonData(boxMon, MON_DATA_TERA_TYPE, &teraType);
 
     if (fixedIV < USE_RANDOM_IVS)
     {
@@ -2005,22 +2003,16 @@ u16 MonTryLearningNewMove(struct Pokemon *mon, bool8 firstMove)
         }
     }
 
-    //  Handler for Pokémon whose moves change upon form change.
-    //  For example, if Zacian or Zamazenta should learn Iron Head,
-    //  they're prevented from doing if they have Behemoth Blade/Bash,
-    //  since it transforms into them while in their Crowned forms.
-    const struct FormChange *formChanges = GetSpeciesFormChanges(species);
-
-    for (u32 i = 0; formChanges != NULL && formChanges[i].method != FORM_CHANGE_TERMINATOR; i++)
+    //  Handler for if Zacian or Zamazenta should learn Iron Head
+    //  since it transforms in the Behemoth Blade/Bash move in
+    //  battle in the Crowned forms.
+    if (learnset[sLearningMoveTableID].move == MOVE_IRON_HEAD && (species == SPECIES_ZAMAZENTA_CROWNED || species == SPECIES_ZACIAN_CROWNED))
     {
-        if (formChanges[i].method == FORM_CHANGE_END_BATTLE
-            && learnset[sLearningMoveTableID].move == formChanges[i].param3)
+        for (u32 accessor = MON_DATA_MOVE1; accessor <= MON_DATA_MOVE4; accessor++)
         {
-            for (u32 j = 0; j < MAX_MON_MOVES; j++)
-            {
-                if (formChanges[i].param2 == GetMonData(mon, MON_DATA_MOVE1 + j))
-                    return MOVE_NONE;
-            }
+            u32 move = GetMonData(mon, accessor);
+            if (move == MOVE_BEHEMOTH_BLADE || move == MOVE_BEHEMOTH_BASH)
+                return MOVE_NONE;
         }
     }
 
@@ -3649,10 +3641,10 @@ const u16 *GetSpeciesFormTable(u16 species)
 
 const struct FormChange *GetSpeciesFormChanges(u16 species)
 {
-    const struct FormChange *formChanges = gSpeciesInfo[SanitizeSpeciesId(species)].formChangeTable;
-    if (formChanges == NULL)
+    const struct FormChange *evolutions = gSpeciesInfo[SanitizeSpeciesId(species)].formChangeTable;
+    if (evolutions == NULL)
         return gSpeciesInfo[SPECIES_NONE].formChangeTable;
-    return formChanges;
+    return evolutions;
 }
 
 u8 CalculatePPWithBonus(u16 move, u8 ppBonuses, u8 moveIndex)
@@ -6129,12 +6121,20 @@ static void Task_AnimateAfterDelay(u8 taskId)
     }
 }
 
+#define tIsShadow data[4]
+
 static void Task_PokemonSummaryAnimateAfterDelay(u8 taskId)
 {
     if (--gTasks[taskId].sAnimDelay == 0)
     {
         StartMonSummaryAnimation(READ_PTR_FROM_TASK(taskId, 0), gTasks[taskId].sAnimId);
-        SummaryScreen_SetAnimDelayTaskId(TASK_NONE);
+        #if BW_SUMMARY_SCREEN == TRUE
+        if (gTasks[taskId].tIsShadow)
+            SummaryScreen_SetShadowAnimDelayTaskId_BW(TASK_NONE); // needed to track anim delay task for mon shadow in BW summary screen
+        else
+        #endif
+            SummaryScreen_SetAnimDelayTaskId(TASK_NONE);
+
         DestroyTask(taskId);
     }
 }
@@ -6194,7 +6194,7 @@ void DoMonFrontSpriteAnimation(struct Sprite *sprite, u16 species, bool8 noCry, 
     }
 }
 
-void PokemonSummaryDoMonAnimation(struct Sprite *sprite, u16 species, bool8 oneFrame)
+void PokemonSummaryDoMonAnimation(struct Sprite *sprite, u16 species, bool8 oneFrame, bool32 isShadow)
 {
     if (!oneFrame && HasTwoFramesAnimation(species))
         StartSpriteAnim(sprite, 1);
@@ -6205,7 +6205,15 @@ void PokemonSummaryDoMonAnimation(struct Sprite *sprite, u16 species, bool8 oneF
         STORE_PTR_IN_TASK(sprite, taskId, 0);
         gTasks[taskId].sAnimId = gSpeciesInfo[species].frontAnimId;
         gTasks[taskId].sAnimDelay = gSpeciesInfo[species].frontAnimDelay;
-        SummaryScreen_SetAnimDelayTaskId(taskId);
+        gTasks[taskId].tIsShadow = isShadow;  // needed to track anim delay task for mon shadow in BW summary screen
+
+        #if BW_SUMMARY_SCREEN == TRUE
+        if (isShadow)
+            SummaryScreen_SetShadowAnimDelayTaskId_BW(taskId);
+        else
+        #endif
+            SummaryScreen_SetAnimDelayTaskId(taskId);
+
         SetSpriteCB_MonAnimDummy(sprite);
     }
     else
@@ -6214,6 +6222,8 @@ void PokemonSummaryDoMonAnimation(struct Sprite *sprite, u16 species, bool8 oneF
         StartMonSummaryAnimation(sprite, gSpeciesInfo[species].frontAnimId);
     }
 }
+
+#define tIsShadow data[4]
 
 void StopPokemonAnimationDelayTask(void)
 {
@@ -7071,10 +7081,4 @@ bool32 IsSpeciesForeignRegionalForm(u32 species, u32 currentRegion)
             return TRUE;
     }
     return FALSE;
-}
-
-u32 GetTeraTypeFromPersonality(struct Pokemon *mon)
-{
-    const u8 *types = gSpeciesInfo[GetMonData(mon, MON_DATA_SPECIES)].types;
-    return (GetMonData(mon, MON_DATA_PERSONALITY) & 0x1) == 0 ? types[0] : types[1];
 }

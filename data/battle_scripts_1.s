@@ -1824,6 +1824,7 @@ BattleScript_HitSwitchTargetDynamaxed::
 	printstring STRINGID_MOVEBLOCKEDBYDYNAMAX
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_HitSwitchTargetForceRandomSwitchFailed:
+	hitswitchtargetfailed
 	setbyte sSWITCH_CASE, B_SWITCH_NORMAL
 	return
 
@@ -2221,13 +2222,13 @@ BattleScript_AttackAccUpDoMoveAnim::
 	attackanimation
 	waitanimation
 	setbyte sSTAT_ANIM_PLAYED, FALSE
-	playstatchangeanimation BS_ATTACKER, BIT_ATK | BIT_ACC, 0
+	playstatchangeanimation BS_ATTACKER, BIT_SPATK | BIT_SPDEF, 0
 	setstatchanger STAT_ATK, 1, FALSE
-	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_AttackAccUpTryAcc
-	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_AttackAccUpTryAcc
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_AttackAccUpTrySpDef
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_AttackAccUpTrySpDef
 	printfromtable gStatUpStringIds
 	waitmessage B_WAIT_TIME_LONG
-BattleScript_AttackAccUpTryAcc::
+BattleScript_AttackAccUpTrySpDef::
 	setstatchanger STAT_ACC, 1, FALSE
 	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_AttackAccUpEnd
 	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_AttackAccUpEnd
@@ -4730,7 +4731,7 @@ BattleScript_MoveEffectStockpileWoreOff::
 	return
 
 BattleScript_StockpileStatChangeDown:
-	statbuffchange MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN, BattleScript_StockpileStatChangeDown_Ret
+	statbuffchange MOVE_EFFECT_AFFECTS_USER, BattleScript_StockpileStatChangeDown_Ret
 	setgraphicalstatchangevalues
 	playanimation BS_ATTACKER, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
 	printfromtable gStatDownStringIds
@@ -4832,7 +4833,6 @@ BattleScript_EffectWillOWisp::
 	jumpifability BS_TARGET, ABILITY_WATER_BUBBLE, BattleScript_WaterVeilPrevents
 	jumpifability BS_TARGET, ABILITY_COMATOSE, BattleScript_AbilityProtectsDoesntAffect
 	jumpifability BS_TARGET, ABILITY_PURIFYING_SALT, BattleScript_AbilityProtectsDoesntAffect
-	jumpifability BS_TARGET, ABILITY_THERMAL_EXCHANGE, BattleScript_AbilityProtectsDoesntAffect
 	jumpifflowerveil BattleScript_FlowerVeilProtects
 	jumpifleafguardprotected BS_TARGET, BattleScript_AbilityProtectsDoesntAffect
 	jumpifshieldsdown BS_TARGET, BattleScript_AbilityProtectsDoesntAffect
@@ -5072,7 +5072,7 @@ BattleScript_EffectBrickBreak::
 	attackstring
 	ppreduce
 	typecalc
-	removescreens
+	removelightscreenreflect
 	critcalc
 	damagecalc
 	adjustdamage
@@ -7030,9 +7030,9 @@ BattleScript_BattlerFormChangeWithStringEnd3::
 
 BattleScript_IllusionOff::
 	spriteignore0hp TRUE
-	playanimation BS_SCRIPTING, B_ANIM_ILLUSION_OFF
+	playanimation BS_TARGET, B_ANIM_ILLUSION_OFF
 	waitanimation
-	updatenick BS_SCRIPTING
+	updatenick BS_TARGET
 	waitstate
 	spriteignore0hp FALSE
 	printstring STRINGID_ILLUSIONWOREOFF
@@ -7075,7 +7075,7 @@ BattleScript_AnticipationActivates::
 
 BattleScript_AftermathDmg::
 	pause B_WAIT_TIME_SHORT
-	call BattleScript_AbilityPopUpScripting
+	call BattleScript_AbilityPopUp
 	jumpifability BS_ATTACKER, ABILITY_MAGIC_GUARD, BattleScript_AftermathDmgRet
 	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
 	healthbarupdate BS_ATTACKER
@@ -7557,37 +7557,35 @@ BattleScript_MoodyEnd:
 	end3
 
 BattleScript_EmergencyExit::
-	.if B_ABILITY_POP_UP == TRUE
 	pause 5
-	call BattleScript_AbilityPopUpScripting
+	call BattleScript_AbilityPopUp
 	pause B_WAIT_TIME_LONG
-	.endif
-	playanimation BS_SCRIPTING, B_ANIM_SLIDE_OFFSCREEN
+BattleScript_EmergencyExitNoPopUp::
+	playanimation BS_TARGET, B_ANIM_SLIDE_OFFSCREEN
 	waitanimation
-	openpartyscreen BS_SCRIPTING, BattleScript_EmergencyExitRet
-	switchoutabilities BS_SCRIPTING
+	openpartyscreen BS_TARGET, BattleScript_EmergencyExitRet
+	switchoutabilities BS_TARGET
 	waitstate
-	switchhandleorder BS_SCRIPTING, 2
+	switchhandleorder BS_TARGET, 2
 	returntoball BS_TARGET, FALSE
-	getswitchedmondata BS_SCRIPTING
-	switchindataupdate BS_SCRIPTING
-	hpthresholds BS_SCRIPTING
+	getswitchedmondata BS_TARGET
+	switchindataupdate BS_TARGET
+	hpthresholds BS_TARGET
 	printstring STRINGID_SWITCHINMON
-	switchinanim BS_SCRIPTING, FALSE, TRUE
+	switchinanim BS_TARGET, FALSE, TRUE
 	waitstate
-	switchineffects BS_SCRIPTING
+	switchineffects BS_TARGET
 BattleScript_EmergencyExitRet:
 	return
 
 BattleScript_EmergencyExitWild::
-	.if B_ABILITY_POP_UP == TRUE
 	pause 5
-	call BattleScript_AbilityPopUpScripting
+	call BattleScript_AbilityPopUp
 	pause B_WAIT_TIME_LONG
-	.endif
-	playanimation BS_SCRIPTING, B_ANIM_SLIDE_OFFSCREEN
+BattleScript_EmergencyExitWildNoPopUp::
+	playanimation BS_TARGET, B_ANIM_SLIDE_OFFSCREEN
 	waitanimation
-	setoutcomeonteleport BS_SCRIPTING
+	setoutcomeonteleport BS_TARGET
 	finishaction
 	return
 
@@ -9994,12 +9992,9 @@ BattleScript_DynamaxEnds::
 
 BattleScript_DynamaxEnds_Ret::
 	flushtextbox
-	spriteignore0hp TRUE
 	updatedynamax
 	playanimation BS_SCRIPTING, B_ANIM_FORM_CHANGE
 	waitanimation
-	spriteignore0hp FALSE
-	pause B_WAIT_TIME_SHORT
 	return
 
 BattleScript_MoveBlockedByDynamax::
