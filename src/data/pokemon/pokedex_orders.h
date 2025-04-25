@@ -2241,7 +2241,7 @@ const u16 gPokedexOrder_Weight[] =
     NATIONAL_DEX_LUDICOLO,
     NATIONAL_DEX_INFERNAPE,
     // 121.7 lbs / 55.2 kg
-    //NATIONAL_DEX_SCEPTILE_MEGA,
+    NATIONAL_DEX_SCEPTILE_MEGA,
     // 122.1 lbs / 55.4 kg
     NATIONAL_DEX_ARTICUNO,
     // 122.4 lbs / 55.5 kg
