@@ -486,7 +486,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .palette = gMonPalette_TyphlosionMega,
         .shinyPalette = gMonShinyPalette_TyphlosionMega,
         .iconSprite = gMonIcon_TyphlosionMega,
-        .iconPalIndex = 4,
+        .iconPalIndex = 3,
         SHADOW(4, 14, SHADOW_SIZE_L)
         FOOTPRINT(Typhlosion)
         OVERWORLD(
