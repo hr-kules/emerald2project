@@ -919,6 +919,8 @@ extern const u32 gItemIcon_MewtwoniteX[];
 extern const u32 gItemIconPalette_MewtwoniteX[];
 extern const u32 gItemIcon_MewtwoniteY[];
 extern const u32 gItemIconPalette_MewtwoniteY[];
+extern const u32 gItemIcon_Typhlosionite[];
+extern const u32 gItemIconPalette_Typhlosionite[];
 extern const u32 gItemIcon_Ampharosite[];
 extern const u32 gItemIconPalette_Ampharosite[];
 extern const u32 gItemIcon_Steelixite[];

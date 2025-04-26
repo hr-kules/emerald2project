@@ -370,7 +370,6 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
 #else
     #define TYPHLOSION_EXP_YIELD 209
 #endif
-
     [SPECIES_TYPHLOSION] =
     {
         .baseHP        = 78,
@@ -436,8 +435,77 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .levelUpLearnset = sTyphlosionLevelUpLearnset,
         .teachableLearnset = sTyphlosionTeachableLearnset,
         .formSpeciesIdTable = sTyphlosionFormSpeciesIdTable,
+        .formChangeTable = sTyphlosionFormChangeTable,
     },
-
+#if P_MEGA_EVOLUTIONS
+    [SPECIES_TYPHLOSION_MEGA] =
+    {
+      /* +40 SpAng, +30 Init, +20 Def, 10 HP */ 
+        .baseHP        = 88,
+        .baseAttack    = 84,
+        .baseDefense   = 98,
+        .baseSpeed     = 110,
+        .baseSpAttack  = 139,
+        .baseSpDefense = 105,
+        .types = MON_TYPES(TYPE_FIRE),
+        .catchRate = 45,
+        .expYield = TYPHLOSION_EXP_YIELD,
+        .evYield_SpAttack = 3,
+        .genderRatio = PERCENT_FEMALE(12.5),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
+        .abilities = { ABILITY_DROUGHT },
+        .bodyColor = BODY_COLOR_YELLOW,
+        .speciesName = _("Typhlosion"),
+        .cryId = CRY_TYPHLOSION,
+        .natDexNum = NATIONAL_DEX_TYPHLOSION_MEGA,
+        .categoryName = _("Volcano"),
+        .height = 19,
+        .weight = 855,
+        .description = COMPOUND_STRING(
+            "It uses the intense heat it produces\n"
+            "to ward of enemies. Despite its angry\n"
+            "demeanor it is a great companion and\n"
+            "will always defend its friends."),
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 268,
+        .trainerOffset = 1,
+        .frontPic = gMonFrontPic_TyphlosionMega,
+        .frontPicSize = MON_COORDS_SIZE(56, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        //.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+        .frontAnimDelay = 20,
+        .backPic = gMonBackPic_TyphlosionMega,
+        .backPicSize = P_GBA_STYLE_SPECIES_GFX ? MON_COORDS_SIZE(64, 56) : MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = P_GBA_STYLE_SPECIES_GFX ? 4 : 3,
+        .backAnimId = BACK_ANIM_SHAKE_GLOW_RED,
+        .palette = gMonPalette_TyphlosionMega,
+        .shinyPalette = gMonShinyPalette_TyphlosionMega,
+        .iconSprite = gMonIcon_TyphlosionMega,
+        .iconPalIndex = 4,
+        SHADOW(4, 14, SHADOW_SIZE_L)
+        FOOTPRINT(Typhlosion)
+        OVERWORLD(
+            sPicTable_Typhlosion,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            sAnimTable_Following,
+            gOverworldPalette_Typhlosion,
+            gShinyOverworldPalette_Typhlosion
+        )
+        .isMegaEvolution = TRUE,
+        .levelUpLearnset = sTyphlosionLevelUpLearnset,
+        .teachableLearnset = sTyphlosionTeachableLearnset,
+        .formSpeciesIdTable = sTyphlosionFormSpeciesIdTable,
+        .formChangeTable = sTyphlosionFormChangeTable,
+    },
+#endif //P_MEGA_EVOLUTIONS
+    
 #if P_HISUIAN_FORMS
     [SPECIES_TYPHLOSION_HISUI] =
     {

@@ -862,6 +862,9 @@ const u32 gItemIconPalette_MewtwoniteX[] = INCBIN_U32("graphics/items/icon_palet
 const u32 gItemIcon_MewtwoniteY[] = INCBIN_U32("graphics/items/icons/mewtwonite_y.4bpp.lz");
 const u32 gItemIconPalette_MewtwoniteY[] = INCBIN_U32("graphics/items/icon_palettes/mewtwonite_y.gbapal.lz");
 
+const u32 gItemIcon_Typhlosionite[] = INCBIN_U32("graphics/items/icons/typhlosionite.4bpp.lz");
+const u32 gItemIconPalette_Typhlosionite[] = INCBIN_U32("graphics/items/icon_palettes/typhlosionite.gbapal.lz");
+
 const u32 gItemIcon_Ampharosite[] = INCBIN_U32("graphics/items/icons/ampharosite.4bpp.lz");
 const u32 gItemIconPalette_Ampharosite[] = INCBIN_U32("graphics/items/icon_palettes/ampharosite.gbapal.lz");
 

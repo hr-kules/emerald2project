@@ -84,6 +84,11 @@ static const u8 sCharizarditeDesc[]   = _("This stone enables\n"
                                           "Charizard to Mega\n"
                                           "Evolve in battle.");
 
+static const u8 sTyphlosioniteDesc[]   = _("This stone enables\n"
+                                          "Typhlosion to Mega\n"
+                                          "Evolve in battle.");
+
+
 static const u8 sMewtwoniteDesc[]     = _("This stone enables\n"
                                           "Mewtwo to Mega\n"
                                           "Evolve in battle.");
@@ -6048,6 +6053,21 @@ const struct Item gItemsInfo[] =
         .iconPic = gItemIcon_Diancite,
         .iconPalette = gItemIconPalette_Diancite,
     },
+
+    [ITEM_TYPHLOSIONITE] =
+    {
+        .name = _("Typhlosionite"),
+        .pluralName = _("Typhlosionites"),
+        .price = 0,
+        .holdEffect = HOLD_EFFECT_MEGA_STONE,
+        .description = sTyphlosioniteDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 80,
+        .iconPic = gItemIcon_Typhlosionite,
+        .iconPalette = gItemIconPalette_Typhlosionite,
+    },	
 
 // Gems
 

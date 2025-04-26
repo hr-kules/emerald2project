@@ -6591,6 +6591,21 @@ const u32 gObjectEventPic_Substitute[] = INCBIN_COMP("graphics/pokemon/question_
     const u32 gShinyOverworldPalette_Typhlosion[] = INCBIN_U32("graphics/pokemon/typhlosion/overworld_shiny.gbapal.lz");
 #endif //OW_PKMN_OBJECTS_SHARE_PALETTES
 #endif //OW_POKEMON_OBJECT_EVENTS
+#if P_MEGA_EVOLUTIONS
+    const u32 gMonFrontPic_TyphlosionMega[] = INCBIN_U32("graphics/pokemon/typhlosion/mega/front.4bpp.lz");
+    const u32 gMonPalette_TyphlosionMega[] = INCBIN_U32("graphics/pokemon/typhlosion/mega/normal.gbapal.lz");
+    const u32 gMonBackPic_TyphlosionMega[] = INCBIN_U32("graphics/pokemon/typhlosion/mega/back.4bpp.lz");
+    const u32 gMonShinyPalette_TyphlosionMega[] = INCBIN_U32("graphics/pokemon/typhlosion/mega/shiny.gbapal.lz");
+    const u8 gMonIcon_TyphlosionMega[] = INCBIN_U8("graphics/pokemon/typhlosion/mega/icon.4bpp");
+#if OW_POKEMON_OBJECT_EVENTS
+    const u32 gObjectEventPic_TyphlosionMega[] = INCBIN_COMP("graphics/pokemon/typhlosion/mega/overworld.4bpp");
+#if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
+    const u32 gOverworldPalette_TyphlosionMega[] = INCBIN_U32("graphics/pokemon/typhlosion/mega/overworld_normal.gbapal.lz");
+    const u32 gShinyOverworldPalette_TyphlosionMega[] = INCBIN_U32("graphics/pokemon/typhlosion/mega/overworld_shiny.gbapal.lz");
+#endif //OW_PKMN_OBJECTS_SHARE_PALETTES
+#endif //OW_POKEMON_OBJECT_EVENTS
+
+#endif
 
 #if P_HISUIAN_FORMS
     const u32 gMonFrontPic_TyphlosionHisui[] = INCBIN_U32("graphics/pokemon/typhlosion/hisui/front.4bpp.lz");
