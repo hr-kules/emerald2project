@@ -247,6 +247,17 @@ static const struct FormChange sTyphlosionFormChangeTable[] = {
 #endif //P_FAMILY_CYNDAQUIL
 
 
+#if P_FAMILY_TOTODILE
+static const struct FormChange sFeraligatrFormChangeTable[] = {
+#if P_MEGA_EVOLUTIONS
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_FERALIGATR_MEGA, ITEM_FERALIGATRITE},
+#endif
+    {FORM_CHANGE_TERMINATOR},
+};
+#endif //P_FAMILY_TOTODILE
+
+
+
 #if P_FAMILY_HERACROSS
 static const struct FormChange sHeracrossFormChangeTable[] = {
 #if P_MEGA_EVOLUTIONS

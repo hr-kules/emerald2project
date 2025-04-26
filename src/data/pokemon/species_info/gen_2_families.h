@@ -786,7 +786,84 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         )
         .levelUpLearnset = sFeraligatrLevelUpLearnset,
         .teachableLearnset = sFeraligatrTeachableLearnset,
+        .formSpeciesIdTable = sFeraligatrFormSpeciesIdTable,
+        .formChangeTable = sFeraligatrFormChangeTable,
+
     },
+#if P_MEGA_EVOLUTIONS
+    [SPECIES_FERALIGATR_MEGA] =
+    {
+        .baseHP        = 85,
+        .baseAttack    = 105,
+        .baseDefense   = 100,
+        .baseSpeed     = 78,
+        .baseSpAttack  = 79,
+        .baseSpDefense = 83,
+        .types = MON_TYPES(TYPE_WATER),
+        .catchRate = 45,
+    #if P_UPDATED_EXP_YIELDS >= GEN_8
+        .expYield = 265,
+    #elif P_UPDATED_EXP_YIELDS >= GEN_5
+        .expYield = 239,
+    #else
+        .expYield = 210,
+    #endif
+        .evYield_Attack = 2,
+        .evYield_Defense = 1,
+        .genderRatio = PERCENT_FEMALE(12.5),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MONSTER, EGG_GROUP_WATER_1),
+        .abilities = { ABILITY_SHEER_FORCE },
+        .bodyColor = BODY_COLOR_BLUE,
+        .speciesName = _("Feraligatr"),
+        .cryId = CRY_FERALIGATR,
+        .natDexNum = NATIONAL_DEX_FERALIGATR_MEGA,
+        .categoryName = _("Big Jaw"),
+        .height = 25,
+        .weight = 988,
+        .description = COMPOUND_STRING(
+            "It lurks in shallow water watining for\n"
+            "prey. With sharp teeth and strong muscles\n"
+            "it overwhelms its prey and enemies with\n"
+            "sheer force."),
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 342,
+        .trainerOffset = 7,
+        .frontPic = gMonFrontPic_FeraligatrMega,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        //.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+        .frontAnimDelay = 20,
+        .backPic = gMonBackPic_FeraligatrMega,
+        .backPicSize = P_GBA_STYLE_SPECIES_GFX ? MON_COORDS_SIZE(64, 64) : MON_COORDS_SIZE(56, 64),
+        .backPicYOffset = P_GBA_STYLE_SPECIES_GFX ? 4 : 3,
+        .backAnimId = BACK_ANIM_V_SHAKE,
+        .palette = gMonPalette_FeraligatrMega,
+        .shinyPalette = gMonShinyPalette_FeraligatrMega,
+        .iconSprite = gMonIcon_FeraligatrMega,
+        .iconPalIndex = P_GBA_STYLE_SPECIES_ICONS ? 2 : 0,
+        SHADOW(4, 14, SHADOW_SIZE_L)
+        FOOTPRINT(Feraligatr)
+        OVERWORLD(
+            sPicTable_Feraligatr,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            sAnimTable_Following,
+            gOverworldPalette_Feraligatr,
+            gShinyOverworldPalette_Feraligatr
+        )
+        .isMegaEvolution = TRUE,
+        .levelUpLearnset = sFeraligatrLevelUpLearnset,
+        .teachableLearnset = sFeraligatrTeachableLearnset,
+        .formSpeciesIdTable = sFeraligatrFormSpeciesIdTable,
+        .formChangeTable = sFeraligatrFormChangeTable,
+    },
+#endif //P_MEGA_EVOLUTIONS
 #endif //P_FAMILY_TOTODILE
 
 #if P_FAMILY_SENTRET
