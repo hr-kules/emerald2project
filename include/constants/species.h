@@ -1639,7 +1639,7 @@
 #define SPECIES_MIMIKYU_TOTEM_BUSTED                    SPECIES_MIMIKYU_BUSTED_TOTEM
 #define SPECIES_MEGANIUM_MEGA                           1524
 #define SPECIES_TYPHLOSION_MEGA                         1525
-#define SPECIES_FERALIGATR_MEGA                          1526
+#define SPECIES_FERALIGATR_MEGA                         1526
 
 #define SPECIES_EGG                                     (SPECIES_FERALIGATR_MEGA + 1)
 

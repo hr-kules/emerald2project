@@ -222,7 +222,85 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         )
         .levelUpLearnset = sMeganiumLevelUpLearnset,
         .teachableLearnset = sMeganiumTeachableLearnset,
+        .formSpeciesIdTable = sMeganiumFormSpeciesIdTable,
+        .formChangeTable = sMeganiumFormChangeTable,
     },
+
+#if P_MEGA_EVOLUTIONS
+    [SPECIES_MEGANIUM_MEGA] =
+    {
+      /* +40 SpVert, +20 SpAng, + 20 Vert , +20 HP*/
+        .baseHP        = 100,
+        .baseAttack    = 82,
+        .baseDefense   = 120,
+        .baseSpeed     = 80,
+        .baseSpAttack  = 103,
+        .baseSpDefense = 140,
+        .types = MON_TYPES(TYPE_GRASS),
+        .catchRate = 45,
+    #if P_UPDATED_EXP_YIELDS >= GEN_8
+        .expYield = 263,
+    #elif P_UPDATED_EXP_YIELDS >= GEN_5
+        .expYield = 236,
+    #else
+        .expYield = 208,
+    #endif
+        .evYield_Defense = 1,
+        .evYield_SpDefense = 2,
+        .genderRatio = PERCENT_FEMALE(12.5),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MONSTER, EGG_GROUP_GRASS),
+        .abilities = { ABILITY_SEED_SOWER },
+        .bodyColor = BODY_COLOR_GREEN,
+        .speciesName = _("Meganium"),
+        .cryId = CRY_MEGANIUM,
+        .natDexNum = NATIONAL_DEX_MEGANIUM_MEGA,
+        .categoryName = _("Herb"),
+        .height = 20,
+        .weight = 1305,
+        .description = COMPOUND_STRING(
+            "Researchers identified it as Meganiums\n"
+            "true form. It is able to activate the growth\n"
+            "of all plants around it. In fights its\n"
+            "endurance is truly remarkable."),
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 277,
+        .trainerOffset = 1,
+        .frontPic = gMonFrontPic_MeganiumMega,
+        .frontPicSize = P_GBA_STYLE_SPECIES_GFX ? MON_COORDS_SIZE(64, 64) : MON_COORDS_SIZE(48, 64),
+        .frontPicYOffset = 0,
+         .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        //.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+        .backPic = gMonBackPic_MeganiumMega,
+        .backPicSize = MON_COORDS_SIZE(56, 64),
+        .backPicYOffset = P_GBA_STYLE_SPECIES_GFX ? 0 : 2,
+        .backAnimId = BACK_ANIM_V_SHAKE,
+        .palette = gMonPalette_MeganiumMega,
+        .shinyPalette = gMonShinyPalette_MeganiumMega,
+        .iconSprite = gMonIcon_MeganiumMega,
+        .iconPalIndex = 1,
+        SHADOW(0, 13, SHADOW_SIZE_M)
+        FOOTPRINT(Meganium)
+        OVERWORLD(
+            sPicTable_Meganium,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            sAnimTable_Following,
+            gOverworldPalette_Meganium,
+            gShinyOverworldPalette_Meganium
+        )
+        .isMegaEvolution = TRUE,
+        .levelUpLearnset = sMeganiumLevelUpLearnset,
+        .teachableLearnset = sMeganiumTeachableLearnset,
+        .formSpeciesIdTable = sMeganiumFormSpeciesIdTable,
+        .formChangeTable = sMeganiumFormChangeTable,
+    },
+#endif //P_MEGA_EVOLUTIONS
+    
 #endif //P_FAMILY_CHIKORITA
 
 #if P_FAMILY_CYNDAQUIL
@@ -793,10 +871,11 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
 #if P_MEGA_EVOLUTIONS
     [SPECIES_FERALIGATR_MEGA] =
     {
-        .baseHP        = 85,
-        .baseAttack    = 105,
-        .baseDefense   = 100,
-        .baseSpeed     = 78,
+      /* +40 Ang, +30 speed, +10 Vert, +20 HP */
+        .baseHP        = 105,
+        .baseAttack    = 145,
+        .baseDefense   = 110,
+        .baseSpeed     = 108,
         .baseSpAttack  = 79,
         .baseSpDefense = 83,
         .types = MON_TYPES(TYPE_WATER),

@@ -237,6 +237,15 @@ static const struct FormChange sAmpharosFormChangeTable[] = {
 };
 #endif //P_FAMILY_MAREEP
 
+#if P_FAMILY_CHIKORITA
+static const struct FormChange sMeganiumFormChangeTable[] = {
+#if P_MEGA_EVOLUTIONS
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_MEGANIUM_MEGA, ITEM_MEGANIUMITE},
+#endif
+    {FORM_CHANGE_TERMINATOR},
+};
+#endif //P_FAMILY_CHIKORITA 
+
 #if P_FAMILY_CYNDAQUIL
 static const struct FormChange sTyphlosionFormChangeTable[] = {
 #if P_MEGA_EVOLUTIONS

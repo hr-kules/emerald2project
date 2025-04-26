@@ -92,6 +92,10 @@ static const u8 sFeraligatriteDesc[]   = _("This stone enables\n"
                                           "Feraligatr to Mega\n"
                                           "Evolve in battle.");
 
+static const u8 sMeganiumiteDesc[]   = _("This stone enables\n"
+                                          "Meganium to Mega\n"
+                                          "Evolve in battle.");
+
 static const u8 sMewtwoniteDesc[]     = _("This stone enables\n"
                                           "Mewtwo to Mega\n"
                                           "Evolve in battle.");
@@ -6057,6 +6061,21 @@ const struct Item gItemsInfo[] =
         .iconPalette = gItemIconPalette_Diancite,
     },
 
+    [ITEM_MEGANIUMITE] =
+    {
+        .name = _("Meganiumite"),
+        .pluralName = _("Meganiumites"),
+        .price = 0,
+        .holdEffect = HOLD_EFFECT_MEGA_STONE,
+        .description = sMeganiumiteDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 80,
+        .iconPic = gItemIcon_Meganiumite,
+        .iconPalette = gItemIconPalette_Meganiumite,
+    },
+	
     [ITEM_TYPHLOSIONITE] =
     {
         .name = _("Typhlosionite"),
