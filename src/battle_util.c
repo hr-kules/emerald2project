@@ -11018,6 +11018,14 @@ void ActivateUltraBurst(u32 battler)
 
 bool32 IsBattlerMegaEvolved(u32 battler)
 {
+    if (GetBattlerSide(battler) == B_SIDE_PLAYER && gSpeciesInfo[gBattleMons[battler].species].isMegaEvolution == TRUE)
+      HandleSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[battler].species), FLAG_SET_SEEN, gBattleMons[battler].personality);
+      HandleSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[battler].species), FLAG_SET_CAUGHT, gBattleMons[battler].personality);
+
+    if (GetBattlerSide(battler) != B_SIDE_PLAYER && gSpeciesInfo[gBattleMons[battler].species].isMegaEvolution == TRUE)
+      HandleSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[battler].species), FLAG_SET_SEEN, gBattleMons[battler].personality);
+
+      
     // While Transform does copy stats and visuals, it shouldn't be counted as true Mega Evolution.
     if (gBattleMons[battler].status2 & STATUS2_TRANSFORMED)
         return FALSE;
@@ -11026,6 +11034,13 @@ bool32 IsBattlerMegaEvolved(u32 battler)
 
 bool32 IsBattlerPrimalReverted(u32 battler)
 {
+   if (GetBattlerSide(battler) == B_SIDE_PLAYER && gSpeciesInfo[gBattleMons[battler].species].isPrimalReversion == TRUE)
+      HandleSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[battler].species), FLAG_SET_SEEN, gBattleMons[battler].personality);     
+      HandleSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[battler].species), FLAG_SET_CAUGHT, gBattleMons[battler].personality);
+
+   if (GetBattlerSide(battler) != B_SIDE_PLAYER && gSpeciesInfo[gBattleMons[battler].species].isPrimalReversion == TRUE)
+      HandleSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[battler].species), FLAG_SET_SEEN, gBattleMons[battler].personality);           
+      
     // While Transform does copy stats and visuals, it shouldn't be counted as true Primal Revesion.
     if (gBattleMons[battler].status2 & STATUS2_TRANSFORMED)
         return FALSE;
@@ -11192,10 +11207,16 @@ bool32 TryBattleFormChange(u32 battler, u32 method)
         if (gBattleStruct->changedSpecies[side][monId] == SPECIES_NONE)
             gBattleStruct->changedSpecies[side][monId] = gBattleMons[battler].species;
 
+  	/* if (GetBattlerSide(battler) == B_SIDE_PLAYER && gSpeciesInfo[gBattleMons[battler].species].isMegaEvolution == TRUE) */
+	/*   HandleSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[battler].species), FLAG_SET_CAUGHT, gBattleMons[battler].personality); */
+
+	
         TryToSetBattleFormChangeMoves(&party[monId], method);
         SetMonData(&party[monId], MON_DATA_SPECIES, &targetSpecies);
         gBattleMons[battler].species = targetSpecies;
         RecalcBattlerStats(battler, &party[monId], method == FORM_CHANGE_BATTLE_GIGANTAMAX);
+ 
+	
         return TRUE;
     }
     else if (gBattleStruct->changedSpecies[side][monId] != SPECIES_NONE)
