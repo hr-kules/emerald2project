@@ -4590,8 +4590,8 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .weight = 1610,
         .description = COMPOUND_STRING(
             "Bathed in the energy of Mega Evolution,\n"
-            "the gemstone on its chest expands, rips\n"
-            "through its skin, and falls out."),
+            "the gemstone on its chest expands. The\n"
+            "gem becomes its most valuable tool."),
         .pokemonScale = 451,
         .pokemonOffset = 17,
         .trainerScale = 256,
@@ -5479,9 +5479,10 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .height = 18,
         .weight = 440,
         .description = COMPOUND_STRING(
-            "Too much electricity has built up in its\n"
-            "body, irritating Manectric. Its explosive\n"
-            "speed is equal to that of a lightning bolt."),
+            "Static electricity has built up in its\n"
+            "body, strengthening Manectric.\n"
+            "Its explosive speed is equal to that \n"
+	    "of a lightning bolt."),
         .pokemonScale = 256,
         .pokemonOffset = 3,
         .trainerScale = 257,
@@ -6429,9 +6430,9 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .weight = 1303,
         .description = COMPOUND_STRING(
             "The yellow patterns it bears are old scars.\n"
-            "The energy from Mega Evolution runs\n"
-            "through them, causing it sharp pain and\n"
-            "suffering."),
+            "The energy from Mega Evolution running\n"
+            "through Sharpedo, unleashes its most \n"
+	    "most aggressive side."),
         .pokemonScale = 256,
         .pokemonOffset = 0,
         .trainerScale = 317,
@@ -9576,7 +9577,8 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .description = COMPOUND_STRING(
             "Extraordinary energy amplifies its\n"
             "cursing power to such an extent that it\n"
-            "can't help but curse its own Trainer."),
+            "can warp the perception of almost \n"
+	    "everything and everyone."),
         .pokemonScale = 262,
         .pokemonOffset = 9,
         .trainerScale = 256,
@@ -10427,8 +10429,9 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .weight = 3502,
         .description = COMPOUND_STRING(
             "The power of Mega Evolution was so strong\n"
-            "that it smashed Glalie's jaw. Its inability\n"
-            "to eat very well leaves Glalie irritated."),
+            "that the frozen crystals on its body\n"
+	    "become hard as steel. It can controll \n"
+            "ice crystals in the air much better now."),
         .pokemonScale = 256,
         .pokemonOffset = 3,
         .trainerScale = 344,
@@ -11391,10 +11394,10 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .height = 18,
         .weight = 1126,
         .description = COMPOUND_STRING(
-            "Mega Evolution fuels its brutality, and it\n"
-            "may even turn on the Trainer who raised it.\n"
-            "It's been dubbed the blood-soaked.\n"
-            "crescent."),
+            "Mega Evolution unlocks the full flying\n"
+            "capabilities dormant in its DNA.\n"
+            "Its blood red wings are its biggest\n"
+            "source of pride."),
         .pokemonScale = 256,
         .pokemonOffset = 0,
         .trainerScale = 256,
@@ -11682,9 +11685,10 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .height = 25,
         .weight = 9429,
         .description = COMPOUND_STRING(
-            "When it knows it can't win, it digs the\n"
-            "claws on its legs into its opponent and\n"
-            "starts the countdown to a big explosion."),
+            "In the wild it forms when Metagross\n"
+            "combines with more Metang or Beldums.\n"
+            "Its brain and psychic powers are \n"
+	    "maximized in ths state."),
         .pokemonScale = 256,
         .pokemonOffset = 4,
         .trainerScale = 447,

@@ -4473,8 +4473,8 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .description = COMPOUND_STRING(
             "Clads itself in the souls of comrades that\n"
             "perished before fulfilling their goals of\n"
-            "journeying upstream. No other species in\n"
-            "all Hisui's rivers is Basculegion's equal."),
+            "journeying upstream. Usually only known in\n"
+            "old Hisui, it is now more common."),
         .pokemonScale = 275,
         .pokemonOffset = 7,
         .trainerScale = 256,

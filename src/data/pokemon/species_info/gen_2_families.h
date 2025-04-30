@@ -5529,10 +5529,10 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .height = 17,
         .weight = 625,
         .description = COMPOUND_STRING(
-            "A tremendous influx of energy builds it up,\n"
-            "but when Mega Evolution ends, Heracross\n"
-            "is bothered by terrible soreness in its\n"
-            "muscles."),
+            "A huge influx of energy builds up,\n"
+            "when Heracross mega evolves. Its will to\n"
+            "fight and endurance are also amplified,\n"
+            "causing it to shatter any boundaries."),
         .pokemonScale = 256,
         .pokemonOffset = 0,
         .trainerScale = 256,
@@ -7394,9 +7394,10 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .height = 19,
         .weight = 495,
         .description = COMPOUND_STRING(
-            "Its red claws and the tips of its tail are\n"
-            "melting from high internal temperatures\n"
-            "that are painful to Houndoom itself.\n"),
+            "Its red claws and the tips of its tail\n"
+            "are burning hot from high internal\n"
+            "temperatures. They are Houndooms \n"
+	    "best weapons."),
         .pokemonScale = 256,
         .pokemonOffset = 4,
         .trainerScale = 256,
@@ -8356,8 +8357,8 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .weight = 2550,
         .description = COMPOUND_STRING(
             "Due to the colossal power poured into it,\n"
-            "this Pokémon's back split right open. Its\n"
-            "destructive instincts are the only thing\n"
+            "this Pokémon's true form is revealed. Its\n"
+            "territiorial instincts are the only thing\n"
             "keeping it moving."),
         .pokemonScale = 256,
         .pokemonOffset = 0,

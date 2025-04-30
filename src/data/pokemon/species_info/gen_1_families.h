@@ -11751,10 +11751,10 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .height = 14,
         .weight = 405,
         .description = COMPOUND_STRING(
-            "Gengar's relationships are warped. It\n"
-            "tries to take the lives of anyone and\n"
-            "everyone. It will even try to curse the\n"
-            "Trainer who is its master!"),
+            "Mega Gengar draws power from unkown\n"
+            "sources. These sources amplify its ghostly\n"
+            "powers but also its tendency to commit\n"
+            "practical Jokes"),
         .pokemonScale = 256,
         .pokemonOffset = 2,
         .trainerScale = 302,
@@ -12908,9 +12908,9 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .weight = 4156,
         .description = COMPOUND_STRING(
             "Alola is the best environment for\n"
-            "this Pokémon. Local people take pride\n"
-            "in its appearance, saying this is how\n"
-            "Exeggutor ought to look."),
+            "this Pokémon. But it also thrives\n"
+            "in other parts of the world. Some say\n"
+            "this is how Exeggutor ought to look."),
         .pokemonScale = 256,
         .pokemonOffset = 0,
         .trainerScale = 309,
@@ -14611,9 +14611,9 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .weight = 1000,
         .description = COMPOUND_STRING(
             "When the mother sees the back of her\n"
-            "Mega-Evolved child, it makes her think\n"
-            "of the day when her child will inevitably\n"
-            "leave her."),
+            "Mega-Evolved child, it fills her with\n"
+            "pride and both develop an increased\n"
+            "drive to battle."),
         .pokemonScale = 256,
         .pokemonOffset = 0,
         .trainerScale = 387,
@@ -15697,10 +15697,10 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .height = 20,
         .weight = 1250,
         .description = COMPOUND_STRING(
-            "The excess energy that bathes this\n"
-            "Pokémon keeps it in constant danger of\n"
-            "overflow. It can't sustain a battle over\n"
-            "long periods of time."),
+            "Only few Scizor can hold this state\n"
+            "permanently. Those that can are the\n"
+            "undisputed fighters among Scizors\n"
+            "and take a lot of pride in it."),
         .pokemonScale = 278,
         .pokemonOffset = 1,
         .trainerScale = 256,
