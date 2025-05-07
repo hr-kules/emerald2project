@@ -587,6 +587,7 @@ static const u16 sMeganiumFormSpeciesIdTable[] = {
 #if P_MEGA_EVOLUTIONS
     SPECIES_MEGANIUM_MEGA,
 #endif
+    FORM_SPECIES_END,
 };
 #endif //P_FAMILY_CHIKORITA
 
