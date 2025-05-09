@@ -5225,10 +5225,10 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .height = 22,
         .weight = 3200,
         .description = COMPOUND_STRING(
-            "Sightings of this Pokémon have\n"
-            "occurred in recent years. The name\n"
-            "Great Tusk was taken from a creature\n"
-            "listed in a certain book."),
+	    "An ancient form of Donphan that \n"
+	    "is however unable to curl up like \n"
+	    "it modern counterpart.\n"
+	    "Its tusks are hard as steel."),
         .pokemonScale = 356,
         .pokemonOffset = 17,
         .trainerScale = 256,
@@ -5291,10 +5291,10 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .height = 12,
         .weight = 80,
         .description = COMPOUND_STRING(
-            "There has been only one reported\n"
-            "sighting of this Pokémon. It\n"
-            "resembles a mysterious creature depicted\n"
-            "in an old expedition journal."),
+	    "Unlike Jigglypuff, which shares a lot of\n"
+	    "similarities with, it does not respond \n"
+	    "to moon stones. This does confuse \n"
+	    "research about evolution."),
         .pokemonScale = 356,
         .pokemonOffset = 17,
         .trainerScale = 256,
@@ -5357,10 +5357,10 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .height = 12,
         .weight = 210,
         .description = COMPOUND_STRING(
-            "It bears a slight resemblance to a\n"
-            "Pokémon described in a dubious\n"
-            "magazine as a cross between a dinosaur\n"
-            "and a mushroom."),
+	    "It looks like an ancient Amoongus. \n"
+	    "Its is way more vicious and aggresive \n"
+	    "and seems to be drawn to warmer \n"
+	    "climates."),
         .pokemonScale = 356,
         .pokemonOffset = 17,
         .trainerScale = 256,
@@ -5425,10 +5425,10 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .height = 14,
         .weight = 40,
         .description = COMPOUND_STRING(
-            "It has similar features to a\n"
-            "ghostly pterosaur that was covered in a\n"
-            "paranormal magazine, but the two\n"
-            "have little else in common."),
+	    "It has strong similarity to Misdreavous \n"
+	    "but it seems unable to evolve. \n"
+	    "The time it is dated to relates it \n"
+	    "to species like Aerodactyl"),
         .pokemonScale = 356,
         .pokemonOffset = 17,
         .trainerScale = 256,
@@ -5492,9 +5492,10 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .height = 32,
         .weight = 920,
         .description = COMPOUND_STRING(
-            "This mysterious Pokémon has some\n"
-            "similarities to a creature that an\n"
-            "old book introduced as Slither Wing."),
+	    "This odd Pokémon seems to be an \n"
+	    "ancestor of Volcarona, but unlike\n"
+	    "its counterpart it seems to be \n"
+	    "unable to fly."),
         .pokemonScale = 356,
         .pokemonOffset = 17,
         .trainerScale = 256,
@@ -5558,9 +5559,9 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .weight = 600,
         .description = COMPOUND_STRING(
             "It slightly resembles a Magneton\n"
-            "that lived for 10,000 years and was\n"
-            "featured in an article in a\n"
-            "paranormal magazine."),
+            "that lived for 10,000 years. Its\n"
+            "relation to Magnemite and Magnezone\n"
+            "is unclear."),
         .pokemonScale = 356,
         .pokemonOffset = 17,
         .trainerScale = 256,
@@ -5623,10 +5624,10 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .height = 9,
         .weight = 2400,
         .description = COMPOUND_STRING(
-            "Sightings of this Pokémon have\n"
-            "occurred in recent years. It resembles\n"
-            "a mysterious object described in an\n"
-            "old expedition journal."),
+	    "It is assumed it is some form of\n"
+	    "Donphan. Like Donphan it curls \n"
+	    "itself into a ball and uses its \n"
+	    "speed to travel and fight."),
         .pokemonScale = 356,
         .pokemonOffset = 17,
         .trainerScale = 256,
@@ -5689,10 +5690,10 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .height = 6,
         .weight = 110,
         .description = COMPOUND_STRING(
-            "Its shape is similar to a robot\n"
-            "featured in a paranormal magazine\n"
-            "article. The robot was said to have been\n"
-            "created by an ancient civilization."),
+            "Its really similar to Delibird.\n"
+            "its robotic structure makes it unclear\n"
+            "if it is a real life form or some kind\n"
+            "of appliance."),
         .pokemonScale = 356,
         .pokemonOffset = 17,
         .trainerScale = 256,
@@ -5755,10 +5756,10 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .height = 18,
         .weight = 3807,
         .description = COMPOUND_STRING(
-            "It is very similar to a cyborg\n"
-            "covered exclusively by a paranormal\n"
-            "magazine. The cyborg was said to be the\n"
-            "modified form of a certain athlete."),
+            "It is very similar to Hariyama,\n"
+            "however its hovering hands give\n"
+            "researchers no clue how this\n"
+            "species even came to be."),
         .pokemonScale = 356,
         .pokemonOffset = 17,
         .trainerScale = 256,
@@ -5821,10 +5822,10 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .height = 13,
         .weight = 1110,
         .description = COMPOUND_STRING(
-            "It resembles a certain Pokémon\n"
-            "introduced in a paranormal magazine,\n"
-            "described as the offspring of a\n"
-            "Hydreigon that fell in love with a robot."),
+            "A Hydreigon of a distant future.\n"
+            "It is unclear how this species\n"
+            "developed, but its ferrocity seems\n"
+            "to be untouched by the process."),
         .pokemonScale = 356,
         .pokemonOffset = 17,
         .trainerScale = 256,
@@ -5888,10 +5889,10 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .height = 12,
         .weight = 360,
         .description = COMPOUND_STRING(
-            "No records exist of this species\n"
-            "being caught. Data is lacking, but\n"
-            "the Pokémon's traits match up with an\n"
-            "object described in an old book."),
+	    "It looks like Volcarona from the future.\n"
+	    "There is so far no data about it, \n"
+	    "but like Volcarona it uses heat \n"
+	    "to ward of danger."),
         .pokemonScale = 356,
         .pokemonOffset = 17,
         .trainerScale = 256,
@@ -5955,10 +5956,10 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .height = 16,
         .weight = 3030,
         .description = COMPOUND_STRING(
-            "It has some similarities to a\n"
-            "Pokémon introduced in a dubious magazine\n"
-            "as a Tyranitar from one billion\n"
-            "years into the future."),
+	    "It looks like a futuristic Tyranitar\n"
+	    "unlike Tyranitar its a lot calmer, \n"
+	    "however it has huge desctructive powers\n"
+	    "like its counterpart."),
         .pokemonScale = 356,
         .pokemonOffset = 17,
         .trainerScale = 256,
@@ -6660,10 +6661,10 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .height = 20,
         .weight = 3800,
         .description = COMPOUND_STRING(
-            "According to an article in a\n"
-            "dubious magazine, this Pokémon has some\n"
-            "connection to Mega Evolution that\n"
-            "occurs in Hoenn."),
+	    "It bears striking similarity to \n"
+	    "Mega Salamence. Its discovery has \n"
+	    "stirred a big controversy about \n"
+	    "mega evolution being a temporary state"),
         .pokemonScale = 356,
         .pokemonOffset = 17,
         .trainerScale = 256,
@@ -6727,9 +6728,9 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .height = 14,
         .weight = 350,
         .description = COMPOUND_STRING(
-            "It has some similarities to a mad\n"
-            "scientist's invention covered in a\n"
-            "paranormal magazine."),
+            "It has similarities to Gallade.\n"
+            "like Gallade it weilds its blades\n"
+            "with precision and power."),
         .pokemonScale = 356,
         .pokemonOffset = 17,
         .trainerScale = 256,
@@ -6858,10 +6859,10 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .height = 35,
         .weight = 2400,
         .description = COMPOUND_STRING(
-            "This seems to be the Iron Serpent\n"
-            "mentioned in an Violet Book. The\n"
-            "Iron Serpent is said to have turned the\n"
-            "land to ash with its lightning."),
+	    "It seems to be a Cyclizar of a \n"
+	    "distant future. The energy running \n"
+	    "through its body is its best weapon, \n"
+	    "offering it speed and strength"),
         .pokemonScale = 356,
         .pokemonOffset = 17,
         .trainerScale = 256,
@@ -6927,8 +6928,8 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .weight = 2800,
         .description = COMPOUND_STRING(
             "This ferocious creature is shrouded in\n"
-            "mystery. It's named after an aquatic\n"
-            "monster mentioned in an old journal."),
+            "mystery. It is assumed that it is an \n"
+	    "ancestor of Suicune."),
         .pokemonScale = 356,
         .pokemonOffset = 17,
         .trainerScale = 256,
@@ -7590,11 +7591,11 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .height = 35,
         .weight = 5900,
         .description = COMPOUND_STRING(
-            "There are scant few reports of\n"
-            "this creature being sighted.\n"
-            "One short video shows it rampaging,\n"
-            "and spouting pillars of flame."),
-        .pokemonScale = 259,
+	    "This newly discovered species \n"
+	    "seems to be an ancient ancestor \n"
+	    "of Entei. In battle it wields intense, \n"
+	    "hot flames. "),
+	.pokemonScale = 259,
         .pokemonOffset = 0,
         .trainerScale = 345,
         .trainerOffset = 7,
@@ -7656,11 +7657,11 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .height = 52,
         .weight = 4800,
         .description = COMPOUND_STRING(
-            "It bears resemblance to a Pokémon\n"
-            "that became a hot topic for a short\n"
-            "while after a paranomal magazine\n"
-            "touted it as Raikou's ancestor."),
-        .pokemonScale = 256,
+	    "It bears striking resemblance to \n"
+	    "Raikou. It controls lightnings with \n"
+	    "ease which leads researchers to think \n"
+	    "its an ancestor of Raikou."),
+	.pokemonScale = 256,
         .pokemonOffset = 0,
         .trainerScale = 345,
         .trainerOffset = 7,
