@@ -11019,12 +11019,15 @@ void ActivateUltraBurst(u32 battler)
 bool32 IsBattlerMegaEvolved(u32 battler)
 {
     if (GetBattlerSide(battler) == B_SIDE_PLAYER && gSpeciesInfo[gBattleMons[battler].species].isMegaEvolution == TRUE)
-      HandleSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[battler].species), FLAG_SET_SEEN, gBattleMons[battler].personality);
-      HandleSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[battler].species), FLAG_SET_CAUGHT, gBattleMons[battler].personality);
+    {
+	HandleSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[battler].species), FLAG_SET_SEEN, gBattleMons[battler].personality);
+	HandleSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[battler].species), FLAG_SET_CAUGHT, gBattleMons[battler].personality);
+    }
 
     if (GetBattlerSide(battler) != B_SIDE_PLAYER && gSpeciesInfo[gBattleMons[battler].species].isMegaEvolution == TRUE)
-      HandleSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[battler].species), FLAG_SET_SEEN, gBattleMons[battler].personality);
-
+    {
+	HandleSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[battler].species), FLAG_SET_SEEN, gBattleMons[battler].personality);
+    }
       
     // While Transform does copy stats and visuals, it shouldn't be counted as true Mega Evolution.
     if (gBattleMons[battler].status2 & STATUS2_TRANSFORMED)
@@ -11035,12 +11038,14 @@ bool32 IsBattlerMegaEvolved(u32 battler)
 bool32 IsBattlerPrimalReverted(u32 battler)
 {
    if (GetBattlerSide(battler) == B_SIDE_PLAYER && gSpeciesInfo[gBattleMons[battler].species].isPrimalReversion == TRUE)
-      HandleSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[battler].species), FLAG_SET_SEEN, gBattleMons[battler].personality);     
-      HandleSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[battler].species), FLAG_SET_CAUGHT, gBattleMons[battler].personality);
-
+   {
+       HandleSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[battler].species), FLAG_SET_SEEN, gBattleMons[battler].personality);     
+       HandleSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[battler].species), FLAG_SET_CAUGHT, gBattleMons[battler].personality);
+   }
    if (GetBattlerSide(battler) != B_SIDE_PLAYER && gSpeciesInfo[gBattleMons[battler].species].isPrimalReversion == TRUE)
+   {
       HandleSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[battler].species), FLAG_SET_SEEN, gBattleMons[battler].personality);           
-      
+   }   
     // While Transform does copy stats and visuals, it shouldn't be counted as true Primal Revesion.
     if (gBattleMons[battler].status2 & STATUS2_TRANSFORMED)
         return FALSE;
