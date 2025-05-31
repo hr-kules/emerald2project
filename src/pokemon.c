@@ -643,6 +643,8 @@ static const u16 sHoennToNationalOrder[HOENN_DEX_COUNT - 1] =
   HOENN_TO_NATIONAL(MINIOR),
   HOENN_TO_NATIONAL(KORAIDON),
   HOENN_TO_NATIONAL(MIRAIDON),
+  HOENN_TO_NATIONAL(ROCKRUFF),
+  HOENN_TO_NATIONAL(LYCANROC),
 };
 
 const struct SpindaSpot gSpindaSpotGraphics[] =
